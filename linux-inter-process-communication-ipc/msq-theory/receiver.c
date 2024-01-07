@@ -17,11 +17,11 @@ int main (int argc, char *argv[])
 {
     fd_set readfds;
     char buffer[MSG_BUFFER_SIZE];
-    int msq_fd = 0;
+    mqd_t msq_fd = 0;
 
-    if (argc <= -1)
+    if (argc <= 1)
     {
-        printf("Provide a reciepent msq name: format </msq-name>\n");
+        printf("Provide a reciepent msq name: \nHint: format </msq-name>\n");
         return 0;
     }
 

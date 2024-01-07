@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
 
     char buffer[MSG_BUFFER_SIZE];
-    int receiver_msq_fd = 0;
+    mqd_t receiver_msq_fd = 0;
 
     if (argc <= 1)
     {
