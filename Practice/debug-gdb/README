@@ -1,0 +1,44 @@
+khi debug them -g vao trong makefile
+gcc -o main -g main.c
+Khi nay Os se nhung ca ma nguon vao file binary > source nang hon [do chua ca ma may + ma nguon]
+tham khao dump.txt
+co the dump nguoc dung
+objdump -D -S main > dump.txt
+
+de debug gdb dung command
+gdb <ten file binary>
+
+sau khi command line tren thuc thi, chuong trinh se di vao man hinh debug. Luc nay chuong trinh no chua chay.
+no moi chi nap chuong trinh vao trong ram. no se dung o cua so (gdb) de chung ta tiep tuc thuc hien mot so thao tac nhu
+set breakpoint
+br line
+print <ten bien> 
+n next
+
+
+find path_to_folder name
+- tim kiem tat ca cac file co chua chuoi name trong folder path_to_folder
+
+grep -nrwI string path_to_folder
+- Tim kiem chuoi string trong folder path_to_folder
+- option nrwI
+- option --include
+
+grep
+
+grep -nrwI text
+- tim kiem 1 doan text bat ky trong thu muc hien tai
+option:
+	-n : show the line number
+	-r: recruisive - se tim trong tat ca cac thu muc con cua thu muc hien tai
+	-I: bo qua cac file binary
+	-w: matching ca doan text thi no moi hien thi
+
+
+cscope dung de tim kiem mot define/ mot function 
+
+neu tim kiem 1 define cua struct dung grep thi rat la nhieu > dung cscope
+-> parser du nhieu nhanh hon
+cscope -R -p4
+-R doc het tat ca cac file c/c++ trong thu muc hien tai > parser ddeen file data cua no
+sau khi parser xong thi se tim kien definition thuan tien hon
