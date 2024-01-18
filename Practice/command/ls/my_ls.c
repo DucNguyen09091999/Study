@@ -90,6 +90,8 @@ int main(int argc, char *argv[])
     int dir_idx;
     char option_len[10];
     int option_idx;
+    int option_loop;
+    int __option;
     int dir_num = 0;
     char buf[10];
     int argv_idx;
@@ -117,19 +119,40 @@ int main(int argc, char *argv[])
 
                 for (option_idx = 1; option_len[option_idx] != '\0'; option_idx++)
                 {
-                    printf("%c\n",option_len[option_idx]);
+                    // printf("%c\n",option_len[option_idx]);
+                    // strncpy(opt[opt_num], (char)(option_len[option_idx]) + 0,1);
+                    // printf("%c is option\n", opt[opt_num]);
+                    // opt_num+=1;
                 }
-                // printf("Len: %d\n", option_idx);
-                // strncpy(opt[opt_num], option_len + 1,option_idx);
-                // opt_num+=1;
+                //printf("Len: %d\n", option_idx);
+
+                for (option_loop = 1; option_loop < option_idx; option_loop++)
+                {
+                    atoi(strncpy(opt[__option], option_len + option_loop ,1));
+                    printf("%s\n",opt[__option]);
+                    __option++;
+                }
+
+                //strncpy(opt[opt_num], option_len + 1,option_idx);
+                
                 // printf("%s is option\n", opt[opt_num]);
             }
             else
             {
                 strcpy(dir[dir_num], argv[argv_idx]);
-                //printf("%s is directory\n", dir[dir_num]);
-                dir_num +=1;
-                 printf("%s is option\n", dir[dir_num]);
+                atoi(strncpy(buf, dir[dir_num] + 0,1));
+                if(strcmp(buf, "/") == 0)
+                {
+                    //printf("%s is directory\n", dir[dir_num]);
+                    dir_num +=1;
+                }
+                else
+                {
+                    printf("ls: cannot access '%s': No such file or directory\n", dir[dir_num]);
+                    exit(EXIT_FAILURE);
+                }
+                
+                //printf("%s is option\n", dir[dir_num]);
             }
         }
 
@@ -142,9 +165,18 @@ int main(int argc, char *argv[])
             {
                 printf("\n");
             }
-            
-            
         }
+
+        
+        for (dir_idx = 0; dir_idx < __option; dir_idx++)
+        {
+            printf("%s\n", opt[dir_idx]);
+        //list_dir(option_len[dir_idx]);
+        //if (dir_idx == 0)
+        //{
+        //    printf("\n");
+        }            
+            
         
     }
 
