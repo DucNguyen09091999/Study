@@ -88,9 +88,14 @@ int main(int argc, char *argv[])
 {
     char dir[1024][50];
     int dir_idx;
+    char option_len[10];
+    int option_idx;
     int dir_num = 0;
     char buf[10];
     int argv_idx;
+    char option[10];
+    char opt[2][100];
+    int opt_num = 0;
     if (argc < 2)
     {
         /*print file + folder in current directory*/
@@ -104,13 +109,27 @@ int main(int argc, char *argv[])
             atoi(strncpy(buf, argv[argv_idx] + 0,1));
             if(strcmp(buf, "-") == 0)
             {
-                printf("%s is option\n", argv[argv_idx]);
+                //printf("%s is option\n", argv[argv_idx]);
+
+                strcpy(option_len, argv[argv_idx]);
+
+                //printf("%s is option\n", option_len);
+
+                for (option_idx = 1; option_len[option_idx] != '\0'; option_idx++)
+                {
+                    printf("%c\n",option_len[option_idx]);
+                }
+                // printf("Len: %d\n", option_idx);
+                // strncpy(opt[opt_num], option_len + 1,option_idx);
+                // opt_num+=1;
+                // printf("%s is option\n", opt[opt_num]);
             }
             else
             {
                 strcpy(dir[dir_num], argv[argv_idx]);
                 //printf("%s is directory\n", dir[dir_num]);
                 dir_num +=1;
+                 printf("%s is option\n", dir[dir_num]);
             }
         }
 
